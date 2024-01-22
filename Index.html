@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+    <title>OCD house - BrainVR</title>
+    <meta name="description" content="Web for OCD house project">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="images/icon.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header class="speaker-page-header" style="background-image: url(/images/background.jpg)">
+        <img class="logo-wide-top" src="/images/logo_wide.png"/>
+        <div class="speaker-page-header-innner">
+            <a class="speaker-page-header-back" href="/Index.html#speakers"> 
+                <img src="/images/arrow_white.png" class="speaker-page-header-back-img">
+                <span>Back</span>
+            </a>
+            <div class="speaker-page-header-title">
+                <img class="logo-wide" src="/images/logo_wide.png"/>
+                <h1>15th International Conference on Disability, Virtual Reality & Associated Technologies</h1>
+            </div>
+        </div>
+    </header>
+    <section id="Terapeuts" class="terapeuts">
+        <h2>Registration Form</h2>
+        <form id="registraionForm" name="registration" class="registration" netlify>
+            <h3>Ticket selection</h3>
+
+            <div class="tickets-cont">
+                <div class="left-cont">
+                    <label for="category">Ticket Category<span class="requiredAsterix">*</span></label>
+                        <select name="category" id="category" required>
+                            <option value=400 >Normal - 400€</option>
+                            <option value=380 >ISVR member - 380€</option>
+                            <option value=250 >Student - 250€</option>
+                            <option value="200" >ISVR member + student - 200€</option>
+                        </select>
+                </div>
+                <div class="right-cont">
+                    <label for="tickets">Amount<span class="requiredAsterix">*</span></label>
+                    <input type="number" id="tickets" min="1" step="1" name="tickets" required>
+                </div>
+            </div>
+
+            
+
+            <label for="voucher">Voucher code</label>
+            <input type="text" id="voucher" name="voucher">
+
+            <label for="discount">Discount code</label>
+            <input type="text" id="discount" name="discount">
+
+            <h3 class="contact-person-break">Contant person</h3>
+
+            <div class="names-cont">
+                <div class="first-name-cont">
+                    <label for="fName">Name<span class="requiredAsterix">*</span></label>
+                    <input type="text" id="fName" name="fName" required>
+                </div>
+                <div class="last-name-cont">
+                    <label for="lName">Surname<span class="requiredAsterix">*</span></label>
+                    <input type="text" id="lName" name="lName" required>
+                </div>
+            </div>
+
+            <label for="email">Email<span class="requiredAsterix">*</span></label>
+            <input type="email" id="email" name="email" required>
+
+            <div class="tickets-cont">
+                <div class="left-cont">
+                    <label for="phone">Telephone Number<span class="requiredAsterix">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="right-cont">
+                    <label for="prefix">Prefix<span class="requiredAsterix">*</span></label>
+                    <input type="tel" id="prefix" name="prefix" required>
+                </div>
+            </div>
+
+            <label for="oName">Institution/Company Name</label>
+            <input type="text" id="oName" name="oName">
+
+            <label for="oAdress">Institution/Company Adress</label>
+            <input type="text" id="oAdress" name="oAdress">
+
+            <div class="pi-cont">
+                <input type="checkbox" name="news" value="news"/>
+                <label for="checkbox">I agree to receive news from the organizer</label>
+            </div>
+            <div class="pi-cont">
+                <input type="checkbox" name="pi" value="pi" required/>
+                <label for="checkbox">By purchasing tickets I agree to the ICDVRAT2024 and Terms and Conditions and acknowledge the Privacy Policy<span class="requiredAsterix">*</span></label>
+            </div>
+
+            
+            <h3 class="contact-person-break">Payment method</h3>
+            <p>We accept payment via bank transfer. After you complete the registration form we will send you the tranfer information on e-mail.</p>
+            
+            <h3 class="contact-person-break">Summary</h3>
+
+            <div class="summary">
+                <div class="category">
+                    <div>
+                        <p>Normal - 400€ × <span id="p400" class="number">0</span><p>0</p>
+                    </div>
+                    <div>
+                        <p>ISVR member - 380€ × <span id="p400" class="number">0</span><p>0</p>
+                    </div>
+                    <div>
+                        <p>Student - 250€ × <span id="p400" class="number">0</span><p>0</p>
+                    </div>
+                    <div>
+                        <p>ISVR member + student - 200€ × <span id="p400" class="number">0</span></p><p>0</p>
+                    </div>
+                    <div class="total">
+                        <p>Total</p><p><span>0</span> €</p>
+                    </div>
+                </div>
+            </div>
+
+            <input class="form-submit" type="submit" value="Send">
+        </form>
+        <div id="registrationComplete" class="registraion-complete">
+            <p>Thank you</p>
+        </dib>
+
+
+    </section>
+
+    <footer style="background-image: url(images/background.jpg)">
+        <p>© Copyright 2024 ICDVRAT 2024. All Rights Reserved.</p>
+        <p>Web made by Pavel Srp</p>
+    </footer>
+    
+    <script>
+        $(document).ready(function(){
+             	
+
+            $( "#aplOutputsButton" ).on( "click", function() {
+                $( "#aplOutputsText" ).slideToggle( "slow", function() {
+                    $( "#aplOutputsButton > img").toggleClass( "rotated" )
+                });
+            });
+
+            $( "#publButton" ).on( "click", function() {
+                $( "#publText" ).slideToggle( "slow", function() {
+                    $( "#publButton > img").toggleClass( "rotated" )
+                });
+            });
+
+            $( ".scenario-cont" ).on( "click", function() {
+                $(this).find(".text-cont > p").slideToggle("slow", function() {
+                    $(this).parent().find(".arrow").toggleClass( "rotated" );
+                });
+
+                $(this).find(".play").toggle();
+
+
+                if ($(this).find("video").get(0).paused) {
+                    $(this).find("video").get(0).play();
+                    //$(this).find("video").get(0).controls = true;
+                } else {
+                    $(this).find("video").get(0).pause();
+                    //$(this).find("video").get(0).controls = false;
+                }
+            });
+            
+
+            $('.stimulus-carousel').slick({
+                dots: true,
+                speed: 300,
+                slidesToShow: 3,
+            });
+
+            $("#menu li").click(function() {
+                $("html, body").animate({ scrollTop: $("" + $(this).data()[""]).offset().top }, 300);
+            });
+
+            /*$("#menuOnHidden").click(function() {
+            $("#menuOnHidden").toggle();
+            $("#menu").slideToggle(300);
+            });
+            $("#menuOff").click(function() {
+                $("#menu").slideToggle(300, function() {
+                    $("#menuOnHidden").toggle();
+                });
+            });*/
+
+            $("#formShow").click(function() {
+                $("#formShow").hide();
+                //$("#formInfo").hide();
+                $("#registraionForm").show();
+            });
+
+            const handleSubmit = (event) => {
+                event.preventDefault();
+
+                const myForm = event.target;
+                const formData = new FormData(myForm);
+  
+                fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString(),
+                })
+                .then(() => {
+                    $("#registraionForm").hide();
+                    $("#registrationComplete").show();
+                    $("html, body").animate({ scrollTop: $("#Terapeuts").offset().top }, 300);
+                    
+                })
+                .catch((error) => alert(error));
+            };
+
+            document
+                .querySelector("form")
+                .addEventListener("submit", handleSubmit);
+        })      
+    </script>
+</body>
+</html>
