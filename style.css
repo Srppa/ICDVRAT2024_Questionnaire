@@ -385,14 +385,13 @@ section{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 620px;
+    width: 600px;
     max-width: 100%;
     margin: 25px auto 0 auto;
 }
 
 .pi-cont label{
     margin: 0;
-    padding-left: 10px;
     font-size: 1.17em;
     font-weight: 500;
 }
@@ -435,21 +434,21 @@ input[type="checkbox"]:checked::before {
     margin: 30px auto;
 }
 
-.category{
+.recap{
     margin-bottom: 50px;
 }
 
-.category > div{
+.recap > div{
     display: flex;
     justify-content: space-between;
 }
 
-.category > div p{
+.recap  > div p{
     display: block;
     margin: 2px 0;
 }
 
-.category .total{
+.recap  .total{
     margin-top: 2px;
     padding-top: 20px;
     border-top: solid 3px #2C3161;
