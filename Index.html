@@ -52,7 +52,7 @@
                             <option value=400 >Normal - 400€</option>
                             <option value=380 >ISVR member - 380€</option>
                             <option value=250 >Student - 250€</option>
-                            <option value="200" >ISVR member + student - 200€</option>
+                            <option value=200 >ISVR member + student - 200€</option>
                         </select>
                 </div>
                 <div class="right-cont">
@@ -63,11 +63,24 @@
 
             
 
+            
+
             <label for="voucher">Voucher code</label>
             <input type="text" id="voucher" name="voucher">
 
             <label for="discount">Discount code</label>
             <input type="text" id="discount" name="discount">
+
+            <div class="summary">
+                <div class="category">
+                    <div class="selectedCategory">
+                        <p><span class="recapCategory">Normal - 400€</span> × <span class="recapAmount">0</span><p class="recapPart">0</p>
+                    </div>
+                    <div class="total">
+                        <p>Total</p><p><span class="finalPrice">0</span> €</p>
+                    </div>
+                </div>
+            </div>
 
             <h3 class="contact-person-break">Contant person</h3>
 
@@ -115,27 +128,6 @@
             <h3 class="contact-person-break">Payment method</h3>
             <p>We accept payment via bank transfer. After you complete the registration form we will send you the tranfer information on e-mail.</p>
             
-            <h3 class="contact-person-break">Summary</h3>
-
-            <div class="summary">
-                <div class="category">
-                    <div>
-                        <p>Normal - 400€ × <span id="p400" class="number">0</span><p>0</p>
-                    </div>
-                    <div>
-                        <p>ISVR member - 380€ × <span id="p400" class="number">0</span><p>0</p>
-                    </div>
-                    <div>
-                        <p>Student - 250€ × <span id="p400" class="number">0</span><p>0</p>
-                    </div>
-                    <div>
-                        <p>ISVR member + student - 200€ × <span id="p400" class="number">0</span></p><p>0</p>
-                    </div>
-                    <div class="total">
-                        <p>Total</p><p><span>0</span> €</p>
-                    </div>
-                </div>
-            </div>
 
             <input class="form-submit" type="submit" value="Send">
         </form>
@@ -154,87 +146,57 @@
     <script>
         $(document).ready(function(){
              	
+            const selectElement = document.querySelector("#category");
+            const ticketsElement = document.querySelector("#tickets");
 
-            $( "#aplOutputsButton" ).on( "click", function() {
-                $( "#aplOutputsText" ).slideToggle( "slow", function() {
-                    $( "#aplOutputsButton > img").toggleClass( "rotated" )
-                });
+            const recapCategory = document.querySelector(".recapCategory");
+            const recapAmount = document.querySelector(".recapAmount");
+            const recapPart = document.querySelector(".recapPart");
+
+            const finalPrice = document.querySelector(".finalPrice");
+
+
+            selectElement.addEventListener("change", (event) => {
+
+                recapCategory.textContent = event.target.selectedOptions[0].label
+ 
+                updateSubFinal()
             });
 
-            $( "#publButton" ).on( "click", function() {
-                $( "#publText" ).slideToggle( "slow", function() {
-                    $( "#publButton > img").toggleClass( "rotated" )
-                });
+            ticketsElement.addEventListener("change", (event) => {
+
+                recapAmount.textContent = event.target.value
+
+                updateSubFinal()
             });
 
-            $( ".scenario-cont" ).on( "click", function() {
-                $(this).find(".text-cont > p").slideToggle("slow", function() {
-                    $(this).parent().find(".arrow").toggleClass( "rotated" );
-                });
+            function updateSubFinal(){
+                console.log(selectElement.value);
+                console.log(ticketsElement.value);
+                recapPart.textContent  = Number(selectElement.value) * Number(ticketsElement.value)
 
-                $(this).find(".play").toggle();
+                updateFinal();
+            }
 
-
-                if ($(this).find("video").get(0).paused) {
-                    $(this).find("video").get(0).play();
-                    //$(this).find("video").get(0).controls = true;
-                } else {
-                    $(this).find("video").get(0).pause();
-                    //$(this).find("video").get(0).controls = false;
-                }
-            });
-            
-
-            $('.stimulus-carousel').slick({
-                dots: true,
-                speed: 300,
-                slidesToShow: 3,
-            });
-
-            $("#menu li").click(function() {
-                $("html, body").animate({ scrollTop: $("" + $(this).data()[""]).offset().top }, 300);
-            });
-
-            /*$("#menuOnHidden").click(function() {
-            $("#menuOnHidden").toggle();
-            $("#menu").slideToggle(300);
-            });
-            $("#menuOff").click(function() {
-                $("#menu").slideToggle(300, function() {
-                    $("#menuOnHidden").toggle();
-                });
-            });*/
-
-            $("#formShow").click(function() {
-                $("#formShow").hide();
-                //$("#formInfo").hide();
-                $("#registraionForm").show();
-            });
+            function updateFinal(){
+                finalPrice.textContent = recapPart.textContent 
+            }
 
             const handleSubmit = (event) => {
-                event.preventDefault();
-
-                const myForm = event.target;
-                const formData = new FormData(myForm);
-  
-                fetch("/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString(),
-                })
-                .then(() => {
-                    $("#registraionForm").hide();
-                    $("#registrationComplete").show();
-                    $("html, body").animate({ scrollTop: $("#Terapeuts").offset().top }, 300);
-                    
-                })
-                .catch((error) => alert(error));
+                console.log("done");
             };
 
             document
                 .querySelector("form")
                 .addEventListener("submit", handleSubmit);
+
+
+
+            updateSubFinal();
         })      
+        
+
+        
     </script>
 </body>
 </html>

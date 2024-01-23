@@ -430,6 +430,11 @@ input[type="checkbox"]:checked::before {
     resize: vertical
 }
 
+.summary{
+    max-width: 400px;
+    margin: 30px auto;
+}
+
 .category{
     margin-bottom: 50px;
 }
